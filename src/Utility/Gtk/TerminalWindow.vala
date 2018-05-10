@@ -166,7 +166,9 @@ public class TerminalWindow : Gtk.Window {
 	}
 
 	public void execute_command(string command){
-		term.feed_child("%s\n".printf(command), -1);
+		char[] a = (char[]) "%s\n".printf(command);
+
+		term.feed_child(a);
 	}
 
 	public void execute_script(string script_path, bool wait = false){
